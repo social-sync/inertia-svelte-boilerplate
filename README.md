@@ -1,3 +1,5 @@
+![LIST Stack](https://repository-images.githubusercontent.com/625840557/afab842f-811c-42ea-8065-ddd745a8f9da)
+
 # A really simple InertiaJS + Laravel + SvelteJS Boilerplate application.
 
 ## Install/Setup
