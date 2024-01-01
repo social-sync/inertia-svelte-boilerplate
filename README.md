@@ -11,9 +11,9 @@
 
 ## Things included:
 
-- TailwindCSS + PostCSS for styling.
-- Svelte + Vite-Plugin-Svelte
-- Some custom stuff for using with Valet + SSL secured sites locally (more on that soon).
+-   TailwindCSS + PostCSS for styling.
+-   Svelte + Vite-Plugin-Svelte
+-   Some custom stuff for using with Valet + SSL secured sites locally (more on that soon).
 
 ## Known issues:
 
