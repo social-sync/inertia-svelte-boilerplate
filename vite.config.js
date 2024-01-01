@@ -5,7 +5,6 @@ import path, {resolve} from 'path';
 import {homedir} from 'os';
 import fs from 'fs';
 
-
 export default defineConfig({
     /**
      * This allows you to use paths like @/folder/file where @ is replaced with
@@ -16,6 +15,8 @@ export default defineConfig({
             '~@': path.resolve(__dirname, './node_modules'),
         },
     },
+    // Uncomment this if you want to use Valet/Herd and local SSL.
+    // server: detectServerConfig('your-local-url.test'),
     optimizeDeps: {
         include: ['@inertiajs/svelte'],
     },
@@ -23,7 +24,7 @@ export default defineConfig({
         svelte({
             prebundleSvelteLibraries: true,
         }),
-        laravel.default({
+        laravel({
             input: ['resources/css/app.css', 'resources/js/app.js'],
             refresh: true,
         }),
