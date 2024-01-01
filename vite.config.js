@@ -7,9 +7,9 @@ import fs from 'fs';
 
 export default defineConfig({
     /**
-     * This allows you to use paths like @/folder/file where @ is replaced with
-     * node_modules
-     */
+    * This allows you to use paths like @/folder/file where @ is replaced with
+    * node_modules
+    */
     resolve: {
         alias: {
             '~@': path.resolve(__dirname, './node_modules'),
@@ -27,30 +27,36 @@ export default defineConfig({
         laravel({
             input: ['resources/css/app.css', 'resources/js/app.js'],
             refresh: true,
+            ssr: 'resources/js/ssr.js',
+        }),
+        svelte({
+            compilerOptions: {
+                hydratable: true,
+            }
         }),
     ],
 });
 
 
 /**
- * This is some custom config added by us at SocialSync from a Freek Van Der Herten blog post.
- * Helps resolve custom domains using Valet and it's SSL.
- * 
- * @param {string} host 
- * @returns 
- */
+* This is some custom config added by us at SocialSync from a Freek Van Der Herten blog post.
+* Helps resolve custom domains using Valet and it's SSL.
+* 
+* @param {string} host 
+* @returns 
+*/
 function detectServerConfig(host) {
     let keyPath = resolve(homedir(), `.config/valet/Certificates/${host}.key`)
     let certificatePath = resolve(homedir(), `.config/valet/Certificates/${host}.crt`)
-
+    
     if (!fs.existsSync(keyPath)) {
         return {}
     }
-
+    
     if (!fs.existsSync(certificatePath)) {
         return {}
     }
-
+    
     return {
         hmr: {host},
         host,
