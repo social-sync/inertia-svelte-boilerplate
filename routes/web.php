@@ -15,5 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Hello');
+    return Inertia::render('Example', [
+        'time' => date('H:ia'),
+    ]);
 });
